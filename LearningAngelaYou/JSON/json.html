@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Testing</title>
+</head>
+<body>
+    <div>
+        <h3>JSON DISPLAY EXAMPLE</h3>
+    </div>
+
+
+    <form id="form" onsubmit="return false;">
+    <input  type="text" id="userInput" /><br><br>
+    <input type="submit" onclick="othername();" >ok</input>
+   </form>
+
+
+    <h1 id="emailId"> </h1>
+    <h2 id="phoneNumber"> </h2>
+    <h2 id="address"> </h2>
+    <h1 id="tryAgain"></h1>
+
+
+    <!-- <img src="./usman.jpg" alt="my photo"> -->
+    <script>
+      
+
+        
+        let input;
+        function othername() {
+        input = document.getElementById("userInput").value;
+        $.getJSON("users.json",function(data){
+            console.log(data);
+            let b = false;
+             for(let i = 0;i<data.length;i++){
+               if(data[i].name ==  input) {
+                // console.log(data[i].email)
+                    b = true;
+                   document.getElementById("emailId").innerHTML =  data[i].email += "<p> = Email</p>"
+                   document.getElementById("phoneNumber").innerHTML = data[i].phone
+                   document.getElementById("address").innerHTML = data[i].address.street
+                   
+               }
+            }
+          if(b === false){
+             console.log("Please Enter again");
+             document.getElementById("tryAgain").innerHTML = "<h1> Please Enter Correct Value </h1>"
+          }
+         
+            
+        });
+
+    }
+    </script>
+    
+</body>
+</html>
