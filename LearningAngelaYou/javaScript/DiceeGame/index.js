@@ -12,9 +12,9 @@ document.querySelectorAll("img")[1].setAttribute("src",value1)
 
 let text;
 if(value>value1){
-    text = "Player 1 Win";
+    text = "Player Usman Win";
 }else if(value1>value){
-    text = "Player 2 Win";
+    text = "Player Usman Loos";
 }else{
     text = "Draw";
 }
